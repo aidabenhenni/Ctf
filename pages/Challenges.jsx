@@ -1,4 +1,4 @@
-import Challenge from '@components/components/Challenge'
+import Challenges from '@components/components/Challenges'
 import Footer from '@components/components/Footer'
 import Navbar from 'components/Navbar'
 import { Main } from 'next/document'
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Navbar/>
-      <Challenge/>
+      <Challenges/>
       <Footer/>
     </>
   )
