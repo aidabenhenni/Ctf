@@ -1,14 +1,15 @@
 import Challenges from '@components/components/Challenges'
 import Footer from '@components/components/Footer'
 import Navbar from 'components/Navbar'
-import { Main } from 'next/document'
-import Image from 'next/image'
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from './_app'
 
-export default function Home() {
+export default function ChallengesPage() {
+  const {authState} = useContext(AuthContext);
+
   return (
     <>
-      <Navbar/>
+      <Navbar  />
       <Challenges/>
       <Footer/>
     </>

@@ -1,8 +1,11 @@
+import { AuthContext } from '@components/pages/_app';
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 
 const Navbar = () => {
+  const {authState} = useContext(AuthContext);
+  
   return (
     <div className='w-full h-20 shadow-xl z-[100]'>
         <div className='flex justify-between text-center items-center w-full h-full px-10 2xl:px-20 '>
@@ -18,8 +21,8 @@ const Navbar = () => {
             <Link href='/Scoreboard'>
               <li className='ml-10 text-sm uppercase hover:border-b border-b-[#109c11] pt-2'>Scoreboard</li>
             </Link>
-            <Link href='/Login'>
-              <li className='ml-10 text-sm uppercase hover:border-b border-b-[#109c11] pt-2'>Log In</li>
+            <Link href={authState.isAuthenticated ?"" : '/Login'}>
+              <li className='ml-10 text-sm uppercase hover:border-b border-b-[#109c11] pt-2'>{authState.isAuthenticated ? authState.user.displayName :"Log In"}</li>
             </Link>
             <Link href='/Signup'>
                 <button className='bg-[#ecf0f3] text-sm w-[120px] ml-20 rounded mx-auto py-2 text-[#109c11] hover:scale-105 ease-in duration-100'>
