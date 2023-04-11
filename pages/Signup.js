@@ -58,10 +58,10 @@ export default function SignUp() {
                             verificationSnapshot => {
                                 setVerificationSent(true);
                                 console.log('Verification link has been sent!');
-                                setInterval((time) => {
+                                setTimeout((time) => {
+                                router.push('/');
                                   
                                 }, 5000);
-                                router.push('/');
 
                             }
                         ).catch(
