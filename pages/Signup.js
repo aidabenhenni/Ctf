@@ -55,18 +55,16 @@ export default function SignUp() {
                     () => {
                         console.log("User added to db successfully");
                         sendEmailVerification(user).then(
-                            verificationSnapshot => {
+                             (verificationSnapshot) => {
                                 setVerificationSent(true);
                                 console.log('Verification link has been sent!');
-                                setInterval((time) => {
-                                  
-                                }, 5000);
-                                router.push('/');
-
                             }
                         ).catch(
                             error => console.error(error.message)
                         );
+                        setTimeout((time) => {
+                            router.push('/');
+                        }, 5000);
                     }
                 ).catch(
                     error =>
