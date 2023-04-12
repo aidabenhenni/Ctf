@@ -28,3 +28,30 @@ button {
 }
 
 }
+.admin-page { 
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  
+}
+.admin-page-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: darkslateblue;
+}
+
+.admin-page-form label {
+  color: white;
+  font-size: large;
+}
+.admin-page-form button{
+  margin-top: 30px;
+  background-color:white ;
+  color: black;
+  height: 30px;
+
+}
