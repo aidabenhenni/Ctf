@@ -1,5 +1,9 @@
 import '@components/styles/globals.css'
 import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { createContext, useState } from 'react';
+
+export const AuthContext = createContext(null);
 
 const firebaseConfig = {
   apiKey: "AIzaSyAvHzm0ez8cY_rnMO7A2iUfZp6muK1SlS0",
@@ -17,5 +21,20 @@ initializeApp(firebaseConfig);
 
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const [authState, setAuthState] = useState({
+    isAuthenticated: false,
+    user: null,
+  })
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user)=>{
+    if (user != null && user.emailVerified)
+      setAuthState({
+        isAuthenticated: true,
+        user
+      });
+    
+  })
+  return <AuthContext.Provider value={{authState, setAuthState}}>
+    <Component {...pageProps} />
+  </AuthContext.Provider>
 }
