@@ -112,7 +112,8 @@ export default function SignUp() {
                     onClick={handleSignUp} disabled={loading}>Sign up</button>
             </div>
             <p className="py-8">Already have an account ?
-                <a className="text-[#a4b0d4]" href="/Login"> Login</a></p>
+                <a className="text-[#a4b0d4]" href="/Login"> Login</a>
+            </p>
         </div>
     )
 }
